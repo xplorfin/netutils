@@ -47,3 +47,5 @@ Need a temporary certificate or certificate chain for a unit test? `TemporaryCer
 ```
 
 There's also a fasthttp module for mocking fasthttp servers/clients with http mock (see tests)
+
+*Note:* the tls module requires go 1.15

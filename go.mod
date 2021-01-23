@@ -1,6 +1,6 @@
 module github.com/xplorfin/netutils
 
-go 1.14
+go 1.15
 
 require (
 	github.com/Flaque/filet v0.0.0-20201012163910-45f684403088
