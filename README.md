@@ -2,7 +2,7 @@
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://app.renovatebot.com/dashboard#github/xplorfin/netutils)
 [![Build status](https://github.com/xplorfin/netutils/workflows/test/badge.svg)](https://github.com/xplorfin/netutils/actions?query=workflow%3Atest)
 [![Build status](https://github.com/xplorfin/netutils/workflows/goreleaser/badge.svg)](https://github.com/xplorfin/netutils/actions?query=workflow%3Agoreleaser)
-[![](https://godoc.org/github.com/xplorfin/netutils?status.svg)](https://godoc.org/github.com/xplorfin/netutils)
+[![](https://godoc.org/github.com/xplorfin/netutils?status.svg)](https://pkg.go.dev/github.com/xplorfin/netutils)
 
 # Netutils
 
