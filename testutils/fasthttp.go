@@ -40,7 +40,7 @@ func (server httpFastHandler) Start(handler fasthttp.RequestHandler) {
 	}()
 }
 
-// Create a dial object cooresponding to mock server
+// Create a dial object corresponding to mock server
 func (server httpFastHandler) Dial() (net.Conn, error) {
 	return server.Listener.Dial()
 }
