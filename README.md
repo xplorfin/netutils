@@ -3,6 +3,7 @@
 [![Build status](https://github.com/xplorfin/netutils/workflows/test/badge.svg)](https://github.com/xplorfin/netutils/actions?query=workflow%3Atest)
 [![Build status](https://github.com/xplorfin/netutils/workflows/goreleaser/badge.svg)](https://github.com/xplorfin/netutils/actions?query=workflow%3Agoreleaser)
 [![](https://godoc.org/github.com/xplorfin/netutils?status.svg)](https://pkg.go.dev/github.com/xplorfin/netutils)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xplorfin/netutils)](https://goreportcard.com/report/github.com/xplorfin/netutils)
 
 # Netutils
 
