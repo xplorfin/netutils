@@ -11,6 +11,7 @@ type fastRouter struct {
 	Router *router.Router
 }
 
+// this module allows you to wrap a fast http server around regular http.handler funcs
 func NewRouter() *fastRouter {
 	r := router.New()
 	return &fastRouter{r}

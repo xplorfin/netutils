@@ -19,8 +19,6 @@ Mocking:
  
 One thing peculiarity of the [`httmock`](https://github.com/jarcoal/httpmock) library is you can't actually pass it a handler. `WrapHandler` let's you do so:
  
-Need a temporary certificate or certificate chain for a unit test? `TemporaryCert` will return certs that get auto removed at the end of the test. The `tls` library contains certificate generation/validation utilities
- 
  Handler Mocking:
  
  (see `mock_test`[testutils/mock_test] for a more detailed example)
