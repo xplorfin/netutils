@@ -49,3 +49,12 @@ func TestGetUnFreePort(t *testing.T) {
 		t.Errorf("expected port %d to be unavailable", port)
 	}
 }
+
+func TestGetUnfreePorts(t *testing.T) {
+	ports := GetUnfreePorts(10, t)
+	for _, port := range ports {
+		if PortIsAvailable(port) {
+			t.Errorf("expected port %d to be unavailable", port)
+		}
+	}
+}
