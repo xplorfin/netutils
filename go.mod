@@ -18,7 +18,7 @@ require (
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/spf13/afero v1.5.1 // indirect
 	github.com/stretchr/testify v1.5.1 // indirect
-	github.com/valyala/fasthttp v1.19.0
+	github.com/valyala/fasthttp v1.20.0
 	github.com/yudai/gojsondiff v1.0.0
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
