@@ -13,6 +13,8 @@ github.com/fasthttp/router v1.3.5 h1:XGZZtcYUH+9ZoLxKhwF66F8sGnMT+Jg00j0JdVzwmDA
 github.com/fasthttp/router v1.3.5/go.mod h1:BylQKgvh6YQkR0mvL60+HJyTaGwcn5d8UFNweOb/Nw8=
 github.com/fasthttp/router v1.3.6 h1:jdcUePPJKABRn6xv8vCuNWzAKTjS1GgJfDIrJ8HDGzk=
 github.com/fasthttp/router v1.3.6/go.mod h1:vkgDOVe0ACGJ2saILzbJjj7roW4Q6oSngDc/Tm5BfzY=
+github.com/fasthttp/router v1.3.7 h1:yjLFbaALLCrUl8M7ZVwVoY4CCtV4xeqGSearuE8erz8=
+github.com/fasthttp/router v1.3.7/go.mod h1:DQBvuHvYbn3SUN6pGjwjPbpCNpWfCFc5Ipn/Fj6XxFc=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWoS4=
 github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ=
@@ -70,6 +72,8 @@ github.com/savsgio/gotils v0.0.0-20210105085219-0567298fdcac h1:5pr1F6tcjeIKPKlr
 github.com/savsgio/gotils v0.0.0-20210105085219-0567298fdcac/go.mod h1:TWNAOTaVzGOXq8RbEvHnhzA/A2sLZzgn0m6URjnukY8=
 github.com/savsgio/gotils v0.0.0-20210204104844-b0c508c7541d h1:O+2HY+eSpUvVrcPFEtdsKvnTw7rHe1T0jHvId+d0A40=
 github.com/savsgio/gotils v0.0.0-20210204104844-b0c508c7541d/go.mod h1:TWNAOTaVzGOXq8RbEvHnhzA/A2sLZzgn0m6URjnukY8=
+github.com/savsgio/gotils v0.0.0-20210217112953-d4a072536008 h1:GfiZ0x43l1tOeyam9RAlJaUkxPwGRz3bIbmtyfTZIWY=
+github.com/savsgio/gotils v0.0.0-20210217112953-d4a072536008/go.mod h1:TWNAOTaVzGOXq8RbEvHnhzA/A2sLZzgn0m6URjnukY8=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
 github.com/spf13/afero v1.5.1 h1:VHu76Lk0LSP1x254maIu2bplkWpfBWI+B+6fdoZprcg=
