@@ -1,6 +1,7 @@
 package testutils
 
 import (
+	"fmt"
 	"github.com/jpillora/backoff"
 	"net"
 	"net/url"
@@ -15,7 +16,19 @@ func getHostnameFromString(potentialHost string) (string, error) {
 		return potentialHost, nil
 	}
 	if parsedUrl.Scheme != "" && parsedUrl.Host != "" {
-		return parsedUrl.Host, nil
+		port := parsedUrl.Port()
+		if port == "" {
+			// net requires a port
+			switch parsedUrl.Scheme {
+			case "https":
+				port = "443"
+			case "http":
+				port = "80"
+			default:
+				return "", fmt.Errorf("host appears to be url, but could not find port for scheme")
+			}
+		}
+		return fmt.Sprintf("%s:%s", parsedUrl.Hostname(), port), nil
 	}
 	return potentialHost, nil
 }

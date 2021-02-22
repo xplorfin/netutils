@@ -31,4 +31,5 @@ func TestUrl(t *testing.T) {
 		assert.Nil(t, err)
 	}()
 	AssertConnected(fmt.Sprintf("http://%s:%d", "localhost", port), t)
+	AssertConnected("https://google.com/", t)
 }
