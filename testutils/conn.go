@@ -3,15 +3,33 @@ package testutils
 import (
 	"github.com/jpillora/backoff"
 	"net"
+	"net/url"
 	"testing"
 	"time"
 )
+
+// if a url is passed, return hostname
+func getHostnameFromString(potentialHost string) (string, error) {
+	parsedUrl, err := url.Parse(potentialHost)
+	if err != nil {
+		return potentialHost, nil
+	}
+	if parsedUrl.Scheme != "" && parsedUrl.Host != "" {
+		return parsedUrl.Host, nil
+	}
+	return potentialHost, nil
+}
 
 // wait for a connect on a port progressively backing off
 // returns false if we couldn't establish a connection by timeout
 // after 10 timeouts
 func WaitForConnectTimeout(host string, timeout time.Duration) bool {
 	connected := false
+	host, err := getHostnameFromString(host)
+	if err != nil {
+		return false
+	}
+
 	b := &backoff.Backoff{
 		Factor: 2,
 		Jitter: true,
