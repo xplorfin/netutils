@@ -15,6 +15,8 @@ github.com/fasthttp/router v1.3.6 h1:jdcUePPJKABRn6xv8vCuNWzAKTjS1GgJfDIrJ8HDGzk
 github.com/fasthttp/router v1.3.6/go.mod h1:vkgDOVe0ACGJ2saILzbJjj7roW4Q6oSngDc/Tm5BfzY=
 github.com/fasthttp/router v1.3.7 h1:yjLFbaALLCrUl8M7ZVwVoY4CCtV4xeqGSearuE8erz8=
 github.com/fasthttp/router v1.3.7/go.mod h1:DQBvuHvYbn3SUN6pGjwjPbpCNpWfCFc5Ipn/Fj6XxFc=
+github.com/fasthttp/router v1.3.8 h1:2ByFINIskXMu8aim/JmZ8WPU7FD4FjaXdUE/tBoAgDI=
+github.com/fasthttp/router v1.3.8/go.mod h1:DQBvuHvYbn3SUN6pGjwjPbpCNpWfCFc5Ipn/Fj6XxFc=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWoS4=
 github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ=
