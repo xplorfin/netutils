@@ -6,7 +6,7 @@ require (
 	github.com/Flaque/filet v0.0.0-20201012163910-45f684403088
 	github.com/Pallinder/go-randomdata v1.2.0
 	github.com/brianvoe/gofakeit/v5 v5.11.2
-	github.com/fasthttp/router v1.3.8
+	github.com/fasthttp/router v1.3.9
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/jpillora/backoff v1.0.0
 	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
