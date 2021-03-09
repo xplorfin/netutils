@@ -21,7 +21,7 @@ One thing peculiarity of the [`httmock`](https://github.com/jarcoal/httpmock) li
  
  Handler Mocking:
  
- (see `mock_test`[testutils/mock_test] for a more detailed example)
+ (see [`mock_test`](testutils/mock_test) for a more detailed example)
  ```go
     package main
     import (
