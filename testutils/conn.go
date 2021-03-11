@@ -2,11 +2,12 @@ package testutils
 
 import (
 	"fmt"
-	"github.com/jpillora/backoff"
 	"net"
 	"net/url"
 	"testing"
 	"time"
+
+	"github.com/jpillora/backoff"
 )
 
 // if a url is passed, return hostname

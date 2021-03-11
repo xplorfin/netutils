@@ -2,12 +2,13 @@ package testutils
 
 import (
 	"context"
-	"github.com/brianvoe/gofakeit/v5"
-	"github.com/valyala/fasthttp"
 	"io/ioutil"
 	"net"
 	"net/http"
 	"testing"
+
+	"github.com/brianvoe/gofakeit/v5"
+	"github.com/valyala/fasthttp"
 )
 
 type ClientMethod int

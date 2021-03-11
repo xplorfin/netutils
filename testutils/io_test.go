@@ -1,8 +1,9 @@
 package testutils
 
 import (
-	"github.com/phayes/freeport"
 	"testing"
+
+	"github.com/phayes/freeport"
 )
 
 func TestPortIsAvailable(t *testing.T) {

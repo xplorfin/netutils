@@ -1,8 +1,9 @@
 package testutils
 
 import (
-	"github.com/phayes/freeport"
 	"testing"
+
+	"github.com/phayes/freeport"
 )
 
 // return a freeport, throw error if not available
