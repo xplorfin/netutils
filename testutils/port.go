@@ -2,9 +2,10 @@ package testutils
 
 import (
 	"fmt"
-	"github.com/phayes/freeport"
 	"net"
 	"strconv"
+
+	"github.com/phayes/freeport"
 )
 
 // get a port and start an http server on it to mock a taken port

@@ -2,11 +2,12 @@ package testutils
 
 import (
 	"context"
-	"github.com/valyala/fasthttp"
-	"github.com/valyala/fasthttp/fasthttputil"
 	"net"
 	"net/http"
 	"testing"
+
+	"github.com/valyala/fasthttp"
+	"github.com/valyala/fasthttp/fasthttputil"
 )
 
 // fast http handler - turns client requests into methods locally handled

@@ -2,8 +2,9 @@ package testutils
 
 import (
 	"encoding/json"
-	"github.com/Pallinder/go-randomdata"
 	"testing"
+
+	"github.com/Pallinder/go-randomdata"
 )
 
 func TestAssertJsonEquals(t *testing.T) {

@@ -1,12 +1,13 @@
 package testutils
 
 import (
-	"github.com/Flaque/filet"
-	"github.com/brianvoe/gofakeit/v5"
-	"github.com/jarcoal/httpmock"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/Flaque/filet"
+	"github.com/brianvoe/gofakeit/v5"
+	"github.com/jarcoal/httpmock"
 )
 
 func WrapHandler(handler http.Handler) httpmock.Responder {

@@ -2,9 +2,10 @@ package testutils
 
 import (
 	"encoding/json"
+	"testing"
+
 	"github.com/yudai/gojsondiff"
 	"github.com/yudai/gojsondiff/formatter"
-	"testing"
 )
 
 // NOTE: Does not currently work on arrays

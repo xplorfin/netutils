@@ -1,10 +1,11 @@
 package testutils
 
 import (
+	"net/http"
+
 	"github.com/fasthttp/router"
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fasthttp/fasthttpadaptor"
-	"net/http"
 )
 
 type fastRouter struct {

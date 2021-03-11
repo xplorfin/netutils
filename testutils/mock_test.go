@@ -2,11 +2,12 @@
 package testutils
 
 import (
-	"github.com/jarcoal/httpmock"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"testing"
+
+	"github.com/jarcoal/httpmock"
 )
 
 var mockResponse = []byte(`{"id": 1, "name": "My Great Article"}`)
