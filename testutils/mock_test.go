@@ -19,7 +19,7 @@ func TestCustomHandlerFunc(t *testing.T) {
 	testServer := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
 		// Test request parameters
 		// Send response to be tested
-		rw.Write(mockResponse)
+		_, _ = rw.Write(mockResponse)
 	})
 
 	httpmock.RegisterResponder("GET", "http://api.entropy.rocks/test", WrapHandler(testServer))
@@ -33,7 +33,7 @@ func TestCustomHandlerFunc(t *testing.T) {
 		t.Error(err)
 	}
 
-	AssertJsonEquals(res, mockResponse, t)
+	AssertJSONEquals(res, mockResponse, t)
 }
 
 func TestMockFile(t *testing.T) {

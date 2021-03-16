@@ -4,6 +4,9 @@ import (
 	"net"
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	testutils "github.com/xplorfin/netutils"
 )
 
 func TestGetFreePort(t *testing.T) {
@@ -39,7 +42,7 @@ func TestGetFreePorts(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		defer l.Close()
+		_ = l.Close()
 	}
 }
 
@@ -56,5 +59,13 @@ func TestGetUnfreePorts(t *testing.T) {
 		if PortIsAvailable(port) {
 			t.Errorf("expected port %d to be unavailable", port)
 		}
+	}
+}
+
+func TestGetFreeportStack(t *testing.T) {
+	stack := testutils.NewFreeportStack()
+	for i := 0; i < 10; i++ {
+		port := stack.GetPort()
+		assert.True(t, PortIsAvailable(port))
 	}
 }

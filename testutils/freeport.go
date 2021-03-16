@@ -6,7 +6,7 @@ import (
 	"github.com/phayes/freeport"
 )
 
-// return a freeport, throw error if not available
+// GetFreePort returns a freeport, throw error if not available
 func GetFreePort(t *testing.T) int {
 	port, err := freeport.GetFreePort()
 	if err != nil {
@@ -15,7 +15,7 @@ func GetFreePort(t *testing.T) int {
 	return port
 }
 
-// retunr a freeport, throw error into test object if not available
+// GetFreePorts returns a freeport, throw error into test object if not available
 func GetFreePorts(count int, t *testing.T) []int {
 	ports, err := freeport.GetFreePorts(count)
 	if err != nil {
@@ -24,7 +24,7 @@ func GetFreePorts(count int, t *testing.T) []int {
 	return ports
 }
 
-// get a port and start an http server on it
+// GetUnfreePort gets a free port and start an http server on it
 // so its taken.
 func GetUnfreePort(t *testing.T) (port int) {
 	port, err := GetUnFreePort()
@@ -34,7 +34,7 @@ func GetUnfreePort(t *testing.T) (port int) {
 	return port
 }
 
-// get a list of ports tthat are taken
+// GetUnfreePorts gets a list of ports that are taken
 func GetUnfreePorts(count int, t *testing.T) (unfreePorts []int) {
 	for i := 0; i < count; i++ {
 		unfreePorts = append(unfreePorts, GetUnfreePort(t))

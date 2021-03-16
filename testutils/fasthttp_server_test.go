@@ -10,27 +10,29 @@ import (
 
 const HelloString = "Welcome!"
 
+// Index is a request handler that writes a string to a mock server
 func Index(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString(HelloString)
+	_, _ = ctx.WriteString(HelloString)
 }
 
+// TestFastClient tests a fasthttp client omcker
 func TestFastClient(t *testing.T) {
-	server := NewFastHttpMock(t)
+	server := NewFastHTTPMock(t)
 	r := NewRouter()
-	r.GETFastHttp("/", Index)
+	r.GETFastHTTP("/", Index)
 	r.GET("/test", func(rw http.ResponseWriter, request *http.Request) {
-		rw.Write([]byte(HelloString))
+		_, _ = rw.Write([]byte(HelloString))
 	})
 
 	server.Start(r.Handler())
 
 	// fast http handler
-	client := server.HttpMockClient()
+	client := server.HTTPMockClient()
 	resp, err := client.Get("http://test/")
 	if err != nil {
 		t.Fatal(err)
 	}
-	resultBody, err := ioutil.ReadAll(resp.Body)
+	resultBody, _ := ioutil.ReadAll(resp.Body)
 	if string(resultBody) != HelloString {
 		t.Errorf("expected response %s to match %s", resultBody, HelloString)
 	}
@@ -40,7 +42,7 @@ func TestFastClient(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	resultBody, err = ioutil.ReadAll(resp.Body)
+	resultBody, _ = ioutil.ReadAll(resp.Body)
 	if string(resultBody) != HelloString {
 		t.Errorf("expected response %s to match %s", resultBody, HelloString)
 	}

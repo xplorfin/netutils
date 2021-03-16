@@ -8,98 +8,121 @@ import (
 	"github.com/valyala/fasthttp/fasthttpadaptor"
 )
 
-type fastRouter struct {
+// FastRouter creates a fasthttp router that is compatible with standard
+// http.Handler's in golang
+type FastRouter struct {
 	Router *router.Router
 }
 
-// this module allows you to wrap a fast http server around regular http.handler funcs
-func NewRouter() *fastRouter {
+// NewRouter allows you to wrap a fast http server around regular http.handler funcs
+func NewRouter() *FastRouter {
 	r := router.New()
-	return &fastRouter{r}
+	return &FastRouter{r}
 }
 
-func (r *fastRouter) Handler() fasthttp.RequestHandler {
+// Handler returns the fasthttp.RequestHandler object for use in a server/with a mock client
+func (r *FastRouter) Handler() fasthttp.RequestHandler {
 	return r.Router.Handler
 }
 
 // request handlers
 
-func (r fastRouter) GETFastHttp(path string, handler fasthttp.RequestHandler) {
+// GETFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) GETFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.GET(path, handler)
 }
 
-func (r fastRouter) GET(path string, handler http.HandlerFunc) {
-	r.GETFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// GET returns a request through the FastRouter.Router handler
+func (r FastRouter) GET(path string, handler http.HandlerFunc) {
+	r.GETFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) PutFastHttp(path string, handler fasthttp.RequestHandler) {
+// PutFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) PutFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.PUT(path, handler)
 }
 
-func (r fastRouter) PUT(path string, handler http.HandlerFunc) {
-	r.PutFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// PUT returns a request through the FastRouter.Router handler
+func (r FastRouter) PUT(path string, handler http.HandlerFunc) {
+	r.PutFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) PostFastHttp(path string, handler fasthttp.RequestHandler) {
+// PostFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) PostFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.POST(path, handler)
 }
 
-func (r fastRouter) POST(path string, handler http.HandlerFunc) {
-	r.PostFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// POST returns a request through the FastRouter.Router handler
+func (r FastRouter) POST(path string, handler http.HandlerFunc) {
+	r.PostFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) PatchFastHttp(path string, handler fasthttp.RequestHandler) {
+// PatchFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) PatchFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.PATCH(path, handler)
 }
 
-func (r fastRouter) PATCH(path string, handler http.HandlerFunc) {
-	r.PatchFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// PATCH returns a request through the FastRouter.Router handler
+func (r FastRouter) PATCH(path string, handler http.HandlerFunc) {
+	r.PatchFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) DeleteFastHttp(path string, handler fasthttp.RequestHandler) {
+// DeleteFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) DeleteFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.DELETE(path, handler)
 }
 
-func (r fastRouter) DELETE(path string, handler http.HandlerFunc) {
-	r.DeleteFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// DELETE returns a request through the FastRouter.Router handler
+func (r FastRouter) DELETE(path string, handler http.HandlerFunc) {
+	r.DeleteFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) ConnectFastHttp(path string, handler fasthttp.RequestHandler) {
+// ConnectFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) ConnectFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.CONNECT(path, handler)
 }
 
-func (r fastRouter) CONNECT(path string, handler http.HandlerFunc) {
-	r.ConnectFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// CONNECT returns a request through the FastRouter.Router handler
+func (r FastRouter) CONNECT(path string, handler http.HandlerFunc) {
+	r.ConnectFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) OptionsFastHttp(path string, handler fasthttp.RequestHandler) {
+// OptionsFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) OptionsFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.OPTIONS(path, handler)
 }
 
-func (r fastRouter) OPTIONS(path string, handler http.HandlerFunc) {
-	r.OptionsFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// OPTIONS returns a request through the FastRouter.Router handler
+func (r FastRouter) OPTIONS(path string, handler http.HandlerFunc) {
+	r.OptionsFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) TraceFastHttp(path string, handler fasthttp.RequestHandler) {
+// TraceFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) TraceFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.TRACE(path, handler)
 }
 
-func (r fastRouter) TRACE(path string, handler http.HandlerFunc) {
-	r.TraceFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// TRACE returns a request through the FastRouter.Router handler
+func (r FastRouter) TRACE(path string, handler http.HandlerFunc) {
+	r.TraceFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) AnyFastHttp(path string, handler fasthttp.RequestHandler) {
+// AnyFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) AnyFastHTTP(path string, handler fasthttp.RequestHandler) {
 	r.Router.ANY(path, handler)
 }
 
-func (r fastRouter) ANY(path string, handler http.HandlerFunc) {
-	r.AnyFastHttp(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
+// ANY returns a request through the FastRouter.Router handler
+func (r FastRouter) ANY(path string, handler http.HandlerFunc) {
+	r.AnyFastHTTP(path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) Handle(method, path string, handler http.HandlerFunc) {
+// Handle returns a request through the FastRouter.Router handler
+func (r FastRouter) Handle(method, path string, handler http.HandlerFunc) {
 	r.Router.Handle(method, path, fasthttpadaptor.NewFastHTTPHandlerFunc(handler))
 }
 
-func (r fastRouter) HandleFastHttp(method, path string, handler fasthttp.RequestHandler) {
+// HandleFastHTTP returns a request through the FastRouter.Router handler
+func (r FastRouter) HandleFastHTTP(method, path string, handler fasthttp.RequestHandler) {
 	r.Router.Handle(method, path, handler)
 }

@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-// mock http handler that's not nil
+// MockHandler mocks an http handler that's not nil
 func MockHandler() http.HandlerFunc {
 	// handle `/` route to `http.DefaultServeMux`
 	return func(res http.ResponseWriter, req *http.Request) {
@@ -27,8 +27,8 @@ func MockHandler() http.HandlerFunc {
 	}
 }
 
-// run a mock http server on a given port
-func MockHttpServer(port int) error {
+// MockHTTPServer runs a mock http server on a given port
+func MockHTTPServer(port int) error {
 	// handle `/` route to `http.DefaultServeMux`
 	handler := MockHandler()
 	router := http.NewServeMux()

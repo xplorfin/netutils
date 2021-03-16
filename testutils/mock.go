@@ -10,6 +10,7 @@ import (
 	"github.com/jarcoal/httpmock"
 )
 
+// WrapHandler wraps a normal http.Handler in a httpmock.Responder for ease of use
 func WrapHandler(handler http.Handler) httpmock.Responder {
 	return func(request *http.Request) (*http.Response, error) {
 		w := httptest.NewRecorder()
@@ -18,7 +19,7 @@ func WrapHandler(handler http.Handler) httpmock.Responder {
 	}
 }
 
-// create a file with random contents and return the location
+// MockFile creates a file with random contents and return the location
 func MockFile(t *testing.T) string {
 	return filet.TmpFile(t, "", gofakeit.Paragraph(4, 4, 4, " ")).Name()
 }
