@@ -64,6 +64,7 @@ func TestGetUnfreePorts(t *testing.T) {
 
 func TestGetFreeportStack(t *testing.T) {
 	stack := netutils.NewFreeportStack()
+  
 	for i := 0; i < 10; i++ {
 		port := stack.GetPort()
 		assert.True(t, PortIsAvailable(port))
