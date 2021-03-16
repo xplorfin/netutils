@@ -1,4 +1,4 @@
-package testutils
+package netutils
 
 import "github.com/phayes/freeport"
 
