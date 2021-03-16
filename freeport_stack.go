@@ -40,7 +40,7 @@ func (s *FreePortStack) GetFreePort() (port int, err error) {
 // GetPort gets a free port that has not already been used in the stack
 // panics on error
 func (s *FreePortStack) GetPort() (port int) {
-	port, err := freeport.GetFreePort()
+	port, err := s.GetFreePort()
 	if err != nil {
 		panic(err)
 	}
