@@ -39,7 +39,7 @@ func TestGetFreePorts(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		defer l.Close()
+		_ = l.Close()
 	}
 }
 

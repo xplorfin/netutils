@@ -44,7 +44,7 @@ func TestFastHttpClient(t *testing.T) {
 	for _, test := range testCases {
 		var client fasthttp.Client
 		body := gofakeit.Sentence(gofakeit.Number(1, 3))
-		server := NewFastHttpMock(t)
+		server := NewFastHTTPMock(t)
 
 		server.Start(func(ctx *fasthttp.RequestCtx) {
 			ctx.Response.SetBodyString(body)
@@ -58,7 +58,7 @@ func TestFastHttpClient(t *testing.T) {
 				},
 			}
 		case Client:
-			client = *server.FastHttpMockClient()
+			client = *server.FastHTTPMockClient()
 		}
 
 		req := makeSimpleRequest()
@@ -77,7 +77,7 @@ func TestHttpClient(t *testing.T) {
 	for _, test := range testCases {
 		var client http.Client
 		body := gofakeit.Sentence(gofakeit.Number(1, 3))
-		server := NewFastHttpMock(t)
+		server := NewFastHTTPMock(t)
 
 		server.Start(func(ctx *fasthttp.RequestCtx) {
 			ctx.Response.SetBodyString(body)
@@ -94,14 +94,14 @@ func TestHttpClient(t *testing.T) {
 			}
 
 		case Client:
-			client = server.HttpMockClient()
+			client = server.HTTPMockClient()
 		}
 
 		resp, err := client.Get("http://test")
 		if err != nil {
 			t.Fatal(err)
 		}
-		resultBody, err := ioutil.ReadAll(resp.Body)
+		resultBody, _ := ioutil.ReadAll(resp.Body)
 
 		if string(resultBody) != body {
 			t.Errorf("expected response: %s to match body: %s", resultBody, body)

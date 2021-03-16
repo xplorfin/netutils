@@ -8,16 +8,17 @@ import (
 	"github.com/yudai/gojsondiff/formatter"
 )
 
-// NOTE: Does not currently work on arrays
-func AssertJsonEquals(a, b []byte, t *testing.T) {
+// AssertJSONEquals makes sure two json byte slices are equal
+// Note: Does not currently work on arrays
+func AssertJSONEquals(a, b []byte, t *testing.T) {
 	d := gojsondiff.New()
 	diff, err := d.Compare(a, b)
 	if err != nil {
 		t.Error(err)
 	}
 	if diff.Modified() {
-		var aJson map[string]interface{}
-		err := json.Unmarshal(a, &aJson)
+		var aJSON map[string]interface{}
+		err := json.Unmarshal(a, &aJSON)
 		if err != nil {
 			t.Error(err)
 		}
@@ -27,7 +28,7 @@ func AssertJsonEquals(a, b []byte, t *testing.T) {
 			Coloring:       true,
 		}
 
-		format := formatter.NewAsciiFormatter(aJson, config)
+		format := formatter.NewAsciiFormatter(aJSON, config)
 		diffString, _ := format.Format(diff)
 		t.Error(diffString)
 	}

@@ -9,6 +9,10 @@ run:
   # for slow ci machines
   timeout: 10m
 
+linters-settings:
+  golint:
+    min-confidence: 0.8
+
 linters:
   enable:
     - gofmt
@@ -16,5 +20,9 @@ linters:
     - gosimple
     - unconvert
     - goimports
-  disable-all: true
+    - golint
+  disable-all: false
   fast: false
+
+issues:
+  exclude-use-default: false

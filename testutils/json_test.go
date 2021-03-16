@@ -18,7 +18,7 @@ func TestAssertJsonEquals(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	AssertJsonEquals(t1, t2, t)
+	AssertJSONEquals(t1, t2, t)
 
 	// a profile with female cannot euqla male
 	notEqualProfile := randomdata.GenerateProfile(randomdata.Female)
@@ -28,7 +28,7 @@ func TestAssertJsonEquals(t *testing.T) {
 	}
 	brokenTesting := testing.T{}
 	// not euqls
-	AssertJsonEquals(t1, ne, &brokenTesting)
+	AssertJSONEquals(t1, ne, &brokenTesting)
 	if !brokenTesting.Failed() {
 		t.Error("expected test to fail")
 	}

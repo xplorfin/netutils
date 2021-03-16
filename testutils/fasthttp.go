@@ -10,28 +10,27 @@ import (
 	"github.com/valyala/fasthttp/fasthttputil"
 )
 
-// fast http handler - turns client requests into methods locally handled
-// by overriding dial
-// for wrapping gock/other mock servers
-type httpFastHandler struct {
-	// the server object
+// HTTPFastHandler - turns client requests into methods locally handled
+// by overriding dial for wrapping gock/other mock servers
+type HTTPFastHandler struct {
+	// Listener is the server object
 	Listener *fasthttputil.InmemoryListener
-	// the test object (for throwing errors)
+	// Test is the test object (for throwing errors)
 	Test *testing.T
 }
 
-// creates a mock server by overriding client
+// NewFastHTTPMock creates a mock server by overriding client
 // this allows us to test fathttp servers without actually standing up a server
-func NewFastHttpMock(t *testing.T) *httpFastHandler {
+func NewFastHTTPMock(t *testing.T) *HTTPFastHandler {
 	server := fasthttputil.NewInmemoryListener()
-	return &httpFastHandler{
+	return &HTTPFastHandler{
 		Listener: server,
 		Test:     t,
 	}
 }
 
-// fast http handler
-func (server httpFastHandler) Start(handler fasthttp.RequestHandler) {
+// Start starts the fastHTTP server and routes request to a given handler
+func (server HTTPFastHandler) Start(handler fasthttp.RequestHandler) {
 	go func() {
 		err := fasthttp.Serve(server.Listener, handler)
 		if err != nil {
@@ -41,14 +40,14 @@ func (server httpFastHandler) Start(handler fasthttp.RequestHandler) {
 	}()
 }
 
-// Create a dial object corresponding to mock server
-func (server httpFastHandler) Dial() (net.Conn, error) {
+// Dial creates a dial object corresponding to mock server
+func (server HTTPFastHandler) Dial() (net.Conn, error) {
 	return server.Listener.Dial()
 }
 
-// fast http client with the server name
-// note this will override every request with dial
-func (server httpFastHandler) FastHttpMockClient() *fasthttp.Client {
+// FastHTTPMockClient creates a fasthttp client with the server name
+// note: this will override every request with dial
+func (server HTTPFastHandler) FastHTTPMockClient() *fasthttp.Client {
 	return &fasthttp.Client{
 		Dial: func(addr string) (net.Conn, error) {
 			return server.Dial()
@@ -56,9 +55,9 @@ func (server httpFastHandler) FastHttpMockClient() *fasthttp.Client {
 	}
 }
 
-// fast http client with the server name
-// note this will override every request with dial
-func (server httpFastHandler) HttpMockClient() http.Client {
+// HTTPMockClient creates an http client with the server name
+// Note: this will override every request with dial
+func (server HTTPFastHandler) HTTPMockClient() http.Client {
 	return http.Client{
 		Transport: &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {

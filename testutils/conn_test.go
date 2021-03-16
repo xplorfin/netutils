@@ -28,7 +28,7 @@ func TestWaitForConnect(t *testing.T) {
 func TestUrl(t *testing.T) {
 	port := GetFreePort(t)
 	go func() {
-		err := MockHttpServer(port)
+		err := MockHTTPServer(port)
 		assert.Nil(t, err)
 	}()
 	AssertConnected(fmt.Sprintf("http://%s:%d", "localhost", port), t)

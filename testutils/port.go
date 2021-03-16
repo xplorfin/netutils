@@ -8,14 +8,14 @@ import (
 	"github.com/phayes/freeport"
 )
 
-// get a port and start an http server on it to mock a taken port
+// GetUnFreePort gets a port and start an http server on it to mock a taken port
 func GetUnFreePort() (port int, err error) {
 	port, err = freeport.GetFreePort()
 	if err != nil {
 		return 0, err
 	}
 	go func() {
-		err = MockHttpServer(port)
+		err = MockHTTPServer(port)
 	}()
 	host := fmt.Sprintf("localhost:%d", port)
 	connected := WaitForConnect(host)
@@ -25,6 +25,7 @@ func GetUnFreePort() (port int, err error) {
 	return port, err
 }
 
+// PortIsAvailable will determine if a port is available
 func PortIsAvailable(port int) bool {
 	// Concatenate a colon and the port
 	host := ":" + strconv.Itoa(port)
