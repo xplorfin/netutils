@@ -6,11 +6,13 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-func IsJson(resp *fasthttp.Response) bool {
+// IsJSON determines whether a fasthttp response is brotli or json
+func IsJSON(resp *fasthttp.Response) bool {
 	contentType := resp.Header.PeekBytes(ContentType)
 	return bytes.Index(contentType, []byte("application/json")) == 0
 }
 
+// UnzipBody unzips a fasthttp body that uses brotli, gzip, or borth
 func UnzipBody(resp *fasthttp.Response) []byte {
 	contentEncoding := resp.Header.PeekBytes(ContentEncoding)
 	var body []byte

@@ -20,8 +20,8 @@ var (
 	Brotli = []byte("brotli")
 	// BrotliShort is the abbreviated brotli header
 	BrotliShort = []byte("br")
-	// JsonEncoding is the header for when data is json encoded
-	JsonEncoding = []byte("application/json")
+	// JSONEncoding is the header for when data is json encoded
+	JSONEncoding = []byte("application/json")
 	// GzipBrotli is the header for data encoded with both gzip and brotli
 	GzipBrotli = []byte("gzip, brotli")
 )

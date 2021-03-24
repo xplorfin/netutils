@@ -4,11 +4,14 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
+// UserAgent contains the netutils user agent
 const UserAgent = "Mozilla/5.0 (compatible; bingbot/2.0; +https://github.com/xplorfin/netutils)"
 
+// UserAgentBytes contains the raw user agent encoded as a byte slice
 var UserAgentBytes = []byte(UserAgent)
 
-func GetRawUrl(uri []byte) ([]byte, error) {
+// GetRawURL gets a rawurl using fasthttp
+func GetRawURL(uri []byte) ([]byte, error) {
 	req := fasthttp.AcquireRequest()
 	resp := fasthttp.AcquireResponse()
 
@@ -27,7 +30,7 @@ func GetRawUrl(uri []byte) ([]byte, error) {
 	return UnzipBody(resp), nil
 }
 
-// for testing, get url using a string
-func GetUrl(uri string) ([]byte, error) {
-	return GetRawUrl([]byte(uri))
+// GetURL gets a string url and unzips body. This is mostly a utility function
+func GetURL(uri string) ([]byte, error) {
+	return GetRawURL([]byte(uri))
 }
