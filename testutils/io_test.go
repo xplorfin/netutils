@@ -1,7 +1,9 @@
-package testutils
+package testutils_test
 
 import (
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 
 	"github.com/phayes/freeport"
 )
@@ -11,14 +13,14 @@ func TestPortIsAvailable(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if !PortIsAvailable(freeTest) {
+	if !testutils.PortIsAvailable(freeTest) {
 		t.Errorf("port %d is available according to freeport, but not iohelper", freeTest)
 	}
-	port, err := GetUnFreePort()
+	port, err := testutils.GetUnFreePort()
 	if err != nil {
 		t.Error(err)
 	}
-	if PortIsAvailable(port) {
+	if testutils.PortIsAvailable(port) {
 		t.Errorf("port %d is available, should not be", port)
 	}
 }

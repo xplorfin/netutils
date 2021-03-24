@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"testing"
 
+	fasthttpHelper "github.com/xplorfin/netutils/fasthttp"
+
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fasthttp/fasthttputil"
 )
@@ -65,4 +67,27 @@ func (server HTTPFastHandler) HTTPMockClient() http.Client {
 			},
 		},
 	}
+}
+
+// GetFastURLResponse gets a fasthttp url with standard headers
+// allows a user to run a function against the response before it is released
+// TODO make this use the fasthttp library
+func GetFastURLResponse(uri []byte, responseHandler func(resp *fasthttp.Response)) (res []byte, err error) {
+	req := fasthttp.AcquireRequest()
+	resp := fasthttp.AcquireResponse()
+
+	defer fasthttp.ReleaseRequest(req)
+	defer fasthttp.ReleaseResponse(resp)
+
+	req.SetRequestURIBytes(uri)
+	req.Header.SetUserAgentBytes(fasthttpHelper.UserAgentBytes)
+	req.Header.SetBytesKV(fasthttpHelper.AcceptEncoding, fasthttpHelper.GzipBrotli)
+	err = fasthttp.Do(req, resp)
+	responseHandler(resp)
+	if err != nil {
+		return nil, err
+	}
+
+	// handle gzip
+	return fasthttpHelper.UnzipBody(resp), nil
 }
