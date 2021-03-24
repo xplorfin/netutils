@@ -2,9 +2,11 @@
 package testutils_test
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strconv"
 	"testing"
 
 	"github.com/xplorfin/netutils/testutils"
@@ -53,4 +55,29 @@ func FileExists(filename string) bool {
 		return false
 	}
 	return !info.IsDir()
+}
+
+func TestMockExamples(t *testing.T) {
+	ExampleMockHTTPServer()
+}
+
+func ExampleMockHTTPServer() {
+	// turn on http mocking
+	httpmock.Activate()
+	defer httpmock.Deactivate()
+	requestCount := 0
+	testServer := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
+		requestCount++
+		rw.WriteHeader(200)
+		_, _ = rw.Write([]byte(strconv.Itoa(requestCount)))
+	})
+
+	httpmock.RegisterResponder("POST", "https://requestcounter.com", testutils.WrapHandler(testServer))
+
+	resp, err := http.Get("https://requestcounter.com")
+	if err != nil {
+		panic(err)
+	}
+	// print the response count, should be 1
+	fmt.Print(resp)
 }
