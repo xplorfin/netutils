@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/Flaque/filet"
 	"github.com/brianvoe/gofakeit/v5"
 	"github.com/jarcoal/httpmock"
+	"github.com/xplorfin/filet"
 )
 
 // WrapHandler wraps a normal http.Handler in a httpmock.Responder for ease of use

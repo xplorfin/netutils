@@ -16,3 +16,20 @@ func TestGetFreeportStack(t *testing.T) {
 		assert.True(t, testutils.PortIsAvailable(port))
 	}
 }
+
+// Freeport stack gets multiple freeports that are non overlapping
+func ExampleFreePortStack_GetFreePort() {
+	// create a port stack
+	stack := netutils.NewFreeportStack()
+
+	// stack.GetPort will gurantee the ports have not been used before in the stack
+	for _, port := range []int{stack.GetPort(), stack.GetPort()} {
+		port := port
+		go func() {
+			err := testutils.MockHTTPServer(port)
+			if err != nil {
+				panic(err)
+			}
+		}()
+	}
+}
