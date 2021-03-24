@@ -1,11 +1,13 @@
 // test mock server
-package testutils
+package testutils_test
 
 import (
 	"io/ioutil"
 	"net/http"
 	"os"
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 
 	"github.com/jarcoal/httpmock"
 )
@@ -22,7 +24,7 @@ func TestCustomHandlerFunc(t *testing.T) {
 		_, _ = rw.Write(mockResponse)
 	})
 
-	httpmock.RegisterResponder("GET", "http://api.entropy.rocks/test", WrapHandler(testServer))
+	httpmock.RegisterResponder("GET", "http://api.entropy.rocks/test", testutils.WrapHandler(testServer))
 	rawRes, err := http.Get("http://api.entropy.rocks/test")
 	if err != nil {
 		t.Error(err)
@@ -33,11 +35,11 @@ func TestCustomHandlerFunc(t *testing.T) {
 		t.Error(err)
 	}
 
-	AssertJSONEquals(res, mockResponse, t)
+	testutils.AssertJSONEquals(res, mockResponse, t)
 }
 
 func TestMockFile(t *testing.T) {
-	file := MockFile(t)
+	file := testutils.MockFile(t)
 	if !FileExists(file) {
 		t.Errorf("expected file %s created by mockfile to exist", file)
 	}

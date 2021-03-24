@@ -1,13 +1,15 @@
-package testutils
+package testutils_test
 
 import (
 	"net"
 	"strconv"
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 )
 
 func TestGetFreePort(t *testing.T) {
-	port := GetFreePort(t)
+	port := testutils.GetFreePort(t)
 	if port == 0 {
 		t.Error("port == 0")
 	}
@@ -25,7 +27,7 @@ func TestGetFreePort(t *testing.T) {
 
 func TestGetFreePorts(t *testing.T) {
 	count := 3
-	ports := GetFreePorts(count, t)
+	ports := testutils.GetFreePorts(count, t)
 	if len(ports) == 0 {
 		t.Error("len(ports) == 0")
 	}
@@ -44,16 +46,16 @@ func TestGetFreePorts(t *testing.T) {
 }
 
 func TestGetUnFreePort(t *testing.T) {
-	port := GetUnfreePort(t)
-	if PortIsAvailable(port) {
+	port := testutils.GetUnfreePort(t)
+	if testutils.PortIsAvailable(port) {
 		t.Errorf("expected port %d to be unavailable", port)
 	}
 }
 
 func TestGetUnfreePorts(t *testing.T) {
-	ports := GetUnfreePorts(10, t)
+	ports := testutils.GetUnfreePorts(10, t)
 	for _, port := range ports {
-		if PortIsAvailable(port) {
+		if testutils.PortIsAvailable(port) {
 			t.Errorf("expected port %d to be unavailable", port)
 		}
 	}

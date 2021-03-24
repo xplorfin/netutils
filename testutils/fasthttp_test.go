@@ -1,4 +1,4 @@
-package testutils
+package testutils_test
 
 import (
 	"context"
@@ -6,6 +6,8 @@ import (
 	"net"
 	"net/http"
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 
 	"github.com/brianvoe/gofakeit/v5"
 	"github.com/valyala/fasthttp"
@@ -44,7 +46,7 @@ func TestFastHttpClient(t *testing.T) {
 	for _, test := range testCases {
 		var client fasthttp.Client
 		body := gofakeit.Sentence(gofakeit.Number(1, 3))
-		server := NewFastHTTPMock(t)
+		server := testutils.NewFastHTTPMock(t)
 
 		server.Start(func(ctx *fasthttp.RequestCtx) {
 			ctx.Response.SetBodyString(body)
@@ -77,7 +79,7 @@ func TestHttpClient(t *testing.T) {
 	for _, test := range testCases {
 		var client http.Client
 		body := gofakeit.Sentence(gofakeit.Number(1, 3))
-		server := NewFastHTTPMock(t)
+		server := testutils.NewFastHTTPMock(t)
 
 		server.Start(func(ctx *fasthttp.RequestCtx) {
 			ctx.Response.SetBodyString(body)

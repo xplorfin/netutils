@@ -1,9 +1,11 @@
-package testutils
+package testutils_test
 
 import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 )
 
 func TestMockHandler(t *testing.T) {
@@ -12,7 +14,7 @@ func TestMockHandler(t *testing.T) {
 		t.Fatal(err)
 	}
 	rr := httptest.NewRecorder()
-	handler := MockHandler()
+	handler := testutils.MockHandler()
 	handler.ServeHTTP(rr, req)
 
 	if http.StatusBadRequest != rr.Code {

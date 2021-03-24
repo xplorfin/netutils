@@ -1,9 +1,11 @@
-package testutils
+package testutils_test
 
 import (
 	"io/ioutil"
 	"net/http"
 	"testing"
+
+	"github.com/xplorfin/netutils/testutils"
 
 	"github.com/valyala/fasthttp"
 )
@@ -17,8 +19,8 @@ func Index(ctx *fasthttp.RequestCtx) {
 
 // TestFastClient tests a fasthttp client omcker
 func TestFastClient(t *testing.T) {
-	server := NewFastHTTPMock(t)
-	r := NewRouter()
+	server := testutils.NewFastHTTPMock(t)
+	r := testutils.NewRouter()
 	r.GETFastHTTP("/", Index)
 	r.GET("/test", func(rw http.ResponseWriter, request *http.Request) {
 		_, _ = rw.Write([]byte(HelloString))
