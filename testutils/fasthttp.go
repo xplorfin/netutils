@@ -71,6 +71,7 @@ func (server HTTPFastHandler) HTTPMockClient() http.Client {
 
 // GetFastURLResponse gets a fasthttp url with standard headers
 // allows a user to run a function against the response before it is released
+// TODO make this use the fasthttp library
 func GetFastURLResponse(uri []byte, responseHandler func(resp *fasthttp.Response)) (res []byte, err error) {
 	req := fasthttp.AcquireRequest()
 	resp := fasthttp.AcquireResponse()
