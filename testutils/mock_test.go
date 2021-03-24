@@ -72,7 +72,7 @@ func ExampleMockHTTPServer() {
 		_, _ = rw.Write([]byte(strconv.Itoa(requestCount)))
 	})
 
-	httpmock.RegisterResponder("POST", "https://requestcounter.com", testutils.WrapHandler(testServer))
+	httpmock.RegisterResponder("GET", "https://requestcounter.com", testutils.WrapHandler(testServer))
 
 	resp, err := http.Get("https://requestcounter.com")
 	if err != nil {
