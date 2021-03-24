@@ -6,6 +6,7 @@ import (
 
 	browser "github.com/EDDYCJY/fake-useragent"
 
+	ua "github.com/mileusna/useragent"
 	. "github.com/stretchr/testify/assert"
 	"github.com/valyala/fasthttp"
 	fasthttpHelper "github.com/xplorfin/netutils/fasthttp"
@@ -67,6 +68,11 @@ func TestHttpClientHooks(t *testing.T) {
 	_ = response
 	True(t, modifyCalled)
 	True(t, processCalled)
+}
+
+func TestUserAgent(t *testing.T) {
+	parsedUa := ua.Parse(fasthttpHelper.UserAgent)
+	True(t, parsedUa.Bot)
 }
 
 func TestClientExamples(t *testing.T) {
