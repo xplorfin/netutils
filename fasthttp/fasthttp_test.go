@@ -5,9 +5,11 @@ import (
 
 	"github.com/brianvoe/gofakeit/v5"
 
-	//"github.com/go-http-utils/headers"
+	// use a seperate lib to test parity
 	"net/http"
 	"testing"
+
+	"github.com/go-http-utils/headers"
 
 	. "github.com/stretchr/testify/assert"
 	"github.com/valyala/fasthttp"
@@ -48,7 +50,7 @@ func getTestServer(t *testing.T) (fastTest FastTest) {
 		_, _ = rw.Write([]byte(fastTest.nonJSONReply))
 	})
 	r.GET("/json", func(rw http.ResponseWriter, request *http.Request) {
-		rw.Header().Set(string(fasthttpHelper.ContentType), string(fasthttpHelper.JSONEncoding))
+		rw.Header().Set(headers.ContentType, string(fasthttpHelper.JSONEncoding))
 		_, _ = rw.Write(fastTest.jsonReply)
 	})
 	server.Start(r.Handler())
