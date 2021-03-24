@@ -21,6 +21,7 @@ linters:
     - unconvert
     - goimports
     - golint
+    - misspell
   disable-all: false
   fast: false
 

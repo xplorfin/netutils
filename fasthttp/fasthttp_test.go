@@ -5,7 +5,7 @@ import (
 
 	"github.com/brianvoe/gofakeit/v5"
 
-	// use a seperate lib to test parity
+	// use a separate lib to test parity
 	"net/http"
 	"testing"
 

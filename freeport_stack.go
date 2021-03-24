@@ -8,7 +8,7 @@ type FreePortStack struct {
 	ports []int
 }
 
-// NewFreeportStack is a helper method to initalize a freeport stack
+// NewFreeportStack is a helper method to initialize a freeport stack
 func NewFreeportStack() FreePortStack {
 	return FreePortStack{}
 }

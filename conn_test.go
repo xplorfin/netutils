@@ -34,8 +34,8 @@ func TestConnectExamples(t *testing.T) {
 // WaitForConnect will attempt to connect and timeout after 10 retries of up to 5 seconds
 func ExampleWaitForConnect() {
 	// will attempt to connect and not timeout since url is valid
-	succesful := netutils.WaitForConnect("https://entropy.rocks")
-	if succesful {
+	successful := netutils.WaitForConnect("https://entropy.rocks")
+	if successful {
 		fmt.Println("connected to entropy!")
 	}
 }
@@ -43,13 +43,13 @@ func ExampleWaitForConnect() {
 // WaitForConnectTimeout will attempt to connect and timeout after 5 seconds
 func ExampleWaitForConnectTimeout() {
 	// will attempt to connect and not timeout since url is valid
-	succesful := netutils.WaitForConnectTimeout("https://entropy.rocks", 5*time.Second)
-	if succesful {
+	successful := netutils.WaitForConnectTimeout("https://entropy.rocks", 5*time.Second)
+	if successful {
 		fmt.Println("connected to entropy!")
 	}
 
-	succesful = netutils.WaitForConnectTimeout("https://entropy.rockssocks", time.Millisecond)
-	if !succesful {
+	successful = netutils.WaitForConnectTimeout("https://entropy.rockssocks", time.Millisecond)
+	if !successful {
 		fmt.Println("could not connect to non-existent domain")
 	}
 }

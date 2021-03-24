@@ -27,7 +27,7 @@ func ExampleFreePortStack_GetFreePort() {
 	// create a port stack
 	stack := netutils.NewFreeportStack()
 
-	// stack.GetPort will gurantee the ports have not been used before in the stack
+	// stack.GetPort will guarantee the ports have not been used before in the stack
 	for _, port := range []int{stack.GetPort(), stack.GetPort()} {
 		port := port
 		go func() {
