@@ -5,7 +5,7 @@ import (
 )
 
 // UserAgent contains the netutils user agent
-const UserAgent = "Mozilla/5.0 (compatible; bingbot/2.0; +https://github.com/xplorfin/netutils)"
+const UserAgent = "Mozilla/5.0 (compatible; netutils/1.0; +https://github.com/xplorfin/netutils)"
 
 // UserAgentBytes contains the raw user agent encoded as a byte slice
 var UserAgentBytes = []byte(UserAgent)
