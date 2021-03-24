@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	browser "github.com/EDDYCJY/fake-useragent"
+
 	. "github.com/stretchr/testify/assert"
 	"github.com/valyala/fasthttp"
 	fasthttpHelper "github.com/xplorfin/netutils/fasthttp"
@@ -65,4 +67,29 @@ func TestHttpClientHooks(t *testing.T) {
 	_ = response
 	True(t, modifyCalled)
 	True(t, processCalled)
+}
+
+func TestClientExamples(t *testing.T) {
+	ExampleNewFastClient()
+}
+
+func ExampleNewFastClient() {
+	// create a new fast client
+	fastClient := fasthttpHelper.NewFastClient()
+	fastClient.ModifyRequest = func(request *fasthttp.Request) {
+		// use a custom user agent
+		request.Header.SetUserAgent(browser.Android())
+	}
+	// since responses are dropped after use in fast http this processes them in method
+	fastClient.ProcessResponse = func(response *fasthttp.Response) {
+		// print the headers
+		fmt.Println(string(response.Header.Header()))
+	}
+	resp, err := fastClient.Request("https://api.entropy.rocks/")
+	if err != nil {
+		panic(err)
+	}
+
+	// get the response after it's been unzipped
+	fmt.Println(string(resp))
 }

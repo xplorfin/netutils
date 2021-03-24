@@ -7,9 +7,8 @@
 
 # Netutils
 
-This is a series of networking utilities and test wrappers by [entropy](http://entropy.rocks/) for building robust networked services in golang. The modules are as follows:
+This is a series of networking utilities and test wrappers by [entropy](http://entropy.rocks/) for building robust networked services in golang. See the godoc for details
 
- - [testutils](testutils) - various utilities for testing 
  
  # What can I do with this?
  

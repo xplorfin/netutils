@@ -101,3 +101,30 @@ func TestIsJSON(t *testing.T) {
 	Nil(t, err)
 	Equal(t, nonJSONResponse, []byte(fastTest.nonJSONReply))
 }
+
+func TestFastHttpExamples(t *testing.T) {
+	ExampleGetRawURL()
+	ExampleGetURL()
+}
+
+// gets a byte slice url using fasthttp
+func ExampleGetRawURL() {
+	// fetch example.org
+	res, err := fasthttpHelper.GetRawURL([]byte("https://api.entropy.rocks"))
+	if err != nil {
+		panic(err)
+	}
+	// print the response body
+	fmt.Println(string(res))
+}
+
+// gets a byte slice url using fasthttp
+func ExampleGetURL() {
+	// fetch example.org
+	res, err := fasthttpHelper.GetURL("https://api.entropy.rocks")
+	if err != nil {
+		panic(err)
+	}
+	// print the response body
+	fmt.Println(string(res))
+}

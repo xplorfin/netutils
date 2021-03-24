@@ -17,6 +17,11 @@ func TestGetFreeportStack(t *testing.T) {
 	}
 }
 
+// will assert no-panic
+func TestFreeportExamples(t *testing.T) {
+	ExampleFreePortStack_GetFreePort()
+}
+
 // Freeport stack gets multiple freeports that are non overlapping
 func ExampleFreePortStack_GetFreePort() {
 	// create a port stack
