@@ -7,7 +7,7 @@ require (
 	github.com/Pallinder/go-randomdata v1.2.0
 	github.com/PuerkitoBio/goquery v1.6.1 // indirect
 	github.com/brianvoe/gofakeit/v5 v5.11.2
-	github.com/fasthttp/router v1.3.9
+	github.com/fasthttp/router v1.3.10
 	github.com/go-http-utils/headers v0.0.0-20181008091004-fed159eddc2a
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/jpillora/backoff v1.0.0
