@@ -12,6 +12,9 @@ run:
 linters-settings:
   golint:
     min-confidence: 0.8
+  gofmt:
+    # simplify code: gofmt with `-s` option, true by default
+    simplify: true
 
 linters:
   enable:

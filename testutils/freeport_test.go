@@ -5,6 +5,9 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/phayes/freeport"
+
+	"github.com/stretchr/testify/assert"
 	"github.com/xplorfin/netutils/testutils"
 )
 
@@ -16,13 +19,10 @@ func TestGetFreePort(t *testing.T) {
 
 	// Try to listen on the port
 	l, err := net.Listen("tcp", "localhost"+":"+strconv.Itoa(port))
-	if err != nil {
-		t.Error(err)
-	}
+	assert.Nil(t, err)
+
 	err = l.Close()
-	if err != nil {
-		t.Error(err)
-	}
+	assert.Nil(t, err)
 }
 
 func TestGetFreePorts(t *testing.T) {
@@ -38,9 +38,8 @@ func TestGetFreePorts(t *testing.T) {
 
 		// Try to listen on the port
 		l, err := net.Listen("tcp", "localhost"+":"+strconv.Itoa(port))
-		if err != nil {
-			t.Error(err)
-		}
+		assert.Nil(t, err)
+
 		_ = l.Close()
 	}
 }
@@ -58,5 +57,20 @@ func TestGetUnfreePorts(t *testing.T) {
 		if testutils.PortIsAvailable(port) {
 			t.Errorf("expected port %d to be unavailable", port)
 		}
+	}
+}
+
+func TestPortIsAvailable(t *testing.T) {
+	freeTest, err := freeport.GetFreePort()
+	assert.Nil(t, err)
+
+	if !testutils.PortIsAvailable(freeTest) {
+		t.Errorf("port %d is available according to freeport, but not iohelper", freeTest)
+	}
+	port, err := testutils.GetUnFreePort()
+	assert.Nil(t, err)
+
+	if testutils.PortIsAvailable(port) {
+		t.Errorf("port %d is available, should not be", port)
 	}
 }
