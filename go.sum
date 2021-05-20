@@ -79,8 +79,8 @@ github.com/savsgio/gotils v0.0.0-20210316171653-c54912823645 h1:ug9pfpEqVhvazyl1
 github.com/savsgio/gotils v0.0.0-20210316171653-c54912823645/go.mod h1:CN0/b5o0sSBi9K8fZTUamBG5NZXO0I64vTh9L3Mzhn0=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
-github.com/spf13/afero v1.5.1 h1:VHu76Lk0LSP1x254maIu2bplkWpfBWI+B+6fdoZprcg=
-github.com/spf13/afero v1.5.1/go.mod h1:Ai8FlHk4v/PARR026UzYexafAt9roJ7LcLMAmO6Z93I=
+github.com/spf13/afero v1.6.0 h1:xoax2sJ2DT8S8xA2paPFjDCScCNeWsg75VG0DLRreiY=
+github.com/spf13/afero v1.6.0/go.mod h1:Ai8FlHk4v/PARR026UzYexafAt9roJ7LcLMAmO6Z93I=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
@@ -92,8 +92,8 @@ github.com/valyala/fasthttp v1.25.0 h1:UV6SocSRGpYzPf+Hk11c3z9zwgOpQu0QSApxsU/+W
 github.com/valyala/fasthttp v1.25.0/go.mod h1:cmWIqlu99AO/RKcp1HWaViTqc57FswJOfYYdPJBl8BA=
 github.com/valyala/tcplisten v0.0.0-20161114210144-ceec8f93295a/go.mod h1:v3UYOV9WzVtRmSR+PDvWpU/qWl4Wa5LApYYX4ZtKbio=
 github.com/valyala/tcplisten v1.0.0/go.mod h1:T0xQ8SeCZGxckz9qRXTfG43PvQ/mcWh7FwZEA7Ioqkc=
-github.com/xplorfin/filet v0.1.0 h1:RjEd3J76Cpia+iQXPLymw5ttrtlTI9AByoUJTu0lLEY=
-github.com/xplorfin/filet v0.1.0/go.mod h1:yfDth5y4F/huKhVZIzmR1JjFA7JKVskJJMQoSIGlPQM=
+github.com/xplorfin/filet v0.3.0 h1:z+fAL7Ffbm2dDROw6zApRSUKQ3d6A9/eBpZZe3AwMCs=
+github.com/xplorfin/filet v0.3.0/go.mod h1:j2xe3SQktEiFiLbqy4aRrgGT9DHi1FXHNFin08BcShE=
 github.com/yudai/gojsondiff v1.0.0 h1:27cbfqXLVEJ1o8I6v3y9lg8Ydm53EKqHXAOMxEGlCOA=
 github.com/yudai/gojsondiff v1.0.0/go.mod h1:AY32+k2cwILAkW1fbgxQ5mUmMiZFgLIV+FBNExI05xg=
 github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 h1:BHyfKlQyqbsFN5p3IfnEUduWvb9is428/nNb5L3U01M=
