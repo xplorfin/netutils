@@ -10,7 +10,7 @@ require (
 	github.com/fasthttp/router v1.4.8
 	github.com/go-http-utils/headers v0.0.0-20181008091004-fed159eddc2a
 	github.com/integralist/go-findroot v0.0.0-20160518114804-ac90681525dc
-	github.com/jarcoal/httpmock v1.0.8
+	github.com/jarcoal/httpmock v1.1.0
 	github.com/jpillora/backoff v1.0.0
 	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
 	github.com/kr/pretty v0.2.1 // indirect
