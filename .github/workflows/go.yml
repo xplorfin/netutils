@@ -37,7 +37,7 @@ jobs:
           FOSS_PACKAGE_USER: ${{ secrets.FOSS_PACKAGE_USER }}
       -
         name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v4
         with:
           version: v0.143.0
           args: release --rm-dist
