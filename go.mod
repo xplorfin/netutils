@@ -20,7 +20,7 @@ require (
 	github.com/onsi/gomega v1.10.4 // indirect
 	github.com/phayes/freeport v0.0.0-20220201140144-74d24b5ae9f5
 	github.com/sergi/go-diff v1.1.0 // indirect
-	github.com/stretchr/testify v1.7.1
+	github.com/stretchr/testify v1.9.0
 	github.com/valyala/fasthttp v1.37.0
 	github.com/xplorfin/filet v0.10.0
 	github.com/yudai/gojsondiff v1.0.0
